@@ -4,6 +4,7 @@
     font-family: Poppins;
 }
 
+/* menu de navegação */
 nav {
     background-color: #fafafa;
 
@@ -14,22 +15,30 @@ nav {
     border-bottom: 1px solid #dadada;
 }
 
+/* área de conteúdo do site */
 .container {
     display: flex;
 }
 
+/* menu lateral */
 aside {
     background-color: #161616;
+    /* item 2a) */
     height: 1200px;
     width: 20vw;
     display: flex;
+
+    /* item 2 b) */
     flex-direction: column;
 }
 
+/* área de conteúdo principal */
 main {
     background-color: #e1e2dc;
+    /* item 3 a) */
+    height: 1200px;
     width: 80vw;
-    padding: 8px;
+    padding: 16px;
 
     display: flex;
     flex-direction: column;
@@ -37,7 +46,7 @@ main {
 }
 
 article {
-    padding: 8px;
+    padding: 16px;
     background-color: #fafafa;
     display: flex;
     flex-direction: column;
@@ -47,46 +56,70 @@ article {
 
 section {
     padding: 8px;
-    border: 1px #161616 solid;
+    border: 2px #161616 solid;
 }
 
 /* botões de navegação */
 .navegacao {
     height: 48px;
     padding: 12px;
+    gap: 8px;
     background-color: #fafafa;
     border: 2px solid #161616;
     color: #161616;
+    display: flex;
 
     box-shadow: 0px 0px 0px;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+/* botão 3d com sombra sólida */
+/* item 1 c) */
 .navegacao:hover {
+    background-color: #f3f1f1;
     box-shadow: 4px 4px 0px;
-    transform: translate(-2px, -2px) ;
+    transform: translate(-2px, -2px);
 }
 
 .navegacao:active {
+    background-color: #e6e3e3;
     box-shadow: 2px 2px 0px;
-    transform: translate(-1px, -1px) ;
+    transform: translate(-1px, -1px);
 }
 
 .navegacao:focus-within {
     box-shadow: 2px 2px 0px;
-    transform: translate(-1px, -1px) ;
+    transform: translate(-1px, -1px);
+}
+
+/* tentando fazer o chevron do dropdown girar */
+.expandir {
+    transition: transform 0.3s;
+}
+.navegacao:hover .epxandir {
+    transform: rotate(180deg);
 }
 /* fim da estilização do botão da navegação */
 
+/* botão do dropdown */
 .botaodropdown {
     padding: 8px;
+    gap: 8px;
     border-style: none;
     color: #161616;
     background-color: #fafafa;
     text-decoration: none;
+    display: flex;
+
+    box-shadow: 0px 0px 0px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .botaodropdown:hover {
-    background-color: #ece9e9;
+    background-color: #f3f1f1;
+    border: 2px #161616 solid;
+    transform: translate(4px, -4px);
+    box-shadow: 0px 0px 0px;
 }
 
 .dropdown {
@@ -97,7 +130,8 @@ section {
 
 .menuDropdown {
     border: 2px #161616 solid;
-    overflow: hidden;
+    background-color: #161616;
+    /* overflow: hidden; */
     min-width: 200px;
     display: flex;
     flex-direction: column;
@@ -122,6 +156,7 @@ section {
     align-self: stretch;
 }
 
+/* botões do menu lateral */
 .botaoMenuLateral {
     height: 48px;
     border: 2px solid #fafafa;
@@ -131,7 +166,7 @@ section {
     transition: 0.2s;
 
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 .botaoMenuLateral:hover {
@@ -139,42 +174,43 @@ section {
     color: #161616;
 }
 
+/* loader */
+/* item 3 b) */
 .loader {
     /* tamanho do loader */
-    height: 84px;
-    width: 84px; 
+    height: 40px;
+    width: 40px; 
     border-radius: 50%;
-    /* overflow: hidden; */
+
+    /* separando uma parte da borda para mostrar a animação */
     border: 5px #e2e2e2 solid;
-    border-top-color: #72ff0e;
+    border-top-color: #ffd209;
 
     /* agora fazendo ele girar infinitamente */
     animation-name: rotacao;
-    animation-duration: 1s;
+    animation-duration: 1.5s;
     animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    /* animando para dar mais peso quando o colorido ficar embaixo */
+    animation-timing-function: ease-in-out;
 }
-
-/* .corLoader {
-    background-color: chartreuse;
-    height: 40px;
-    width: 40px;
-
-} */
 
 @keyframes rotacao {
     0% {
         transform: rotate(0deg);
-        border-top-color: #72ff0e;
+        border-top-color: #ffd209;
     }
 
-    50% {
-        border-top-color: #24128a;
+    33% {
+        border-top-color: #f7500f;
+    }
+    
+    66% {
+        border-top-color: #2ae3fc;
     }
 
     100% {
         transform: rotate(360deg);
-        border-top-color: #72ff0e;
+        border-top-color: #ffd209;
     }
 }
 
@@ -182,6 +218,7 @@ section {
     background-color: #fafafa;
 
     padding: 16px;
+    gap: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -189,13 +226,16 @@ section {
 }
 
 /* Responsividade */
+/* item 4 */
 @media only screen and (max-width: 600px) {
     .container {
+        /* item 4 b) */
         flex-direction: column;
     }
     aside {
         background-color: #161616;
         display: flex;
+        /* item 4 a) */
         height: auto;
         width: auto;
         justify-content: center;
@@ -212,5 +252,49 @@ section {
 
     .botaoMenuLateral {
         width: 400px;
+        justify-content: center;
     }
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+section:hover {
+    background-color: #f7f7f2;
+}
+
+section p {
+    font-size: 14px;
+    color: #575757;
+}
+
+.imagem {
+    border: 2px #161616 solid;
+    height: 200px;
+    object-fit: cover;
+}
+
+.secundario {
+    padding: 8px;
+    gap: 8px;
+    border: #161616;
+    color: #161616;
+    border: 2px #fafafa solid;
+    background-color: #fafafa;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
+.secundario:hover {
+    background-color: #f3f1f1;
+    border: 2px #161616 solid;
+
+}
+
+.secundario:active {
+    background-color: #e6e3e3;
 }
