@@ -213,8 +213,4 @@ section {
     .botaoMenuLateral {
         width: 400px;
     }
-
-    .container {
-        flex-direction: column-reverse;
-    }
 }
