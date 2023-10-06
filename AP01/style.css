@@ -72,7 +72,7 @@ section {
     transform: translate(-1px, -1px) ;
 }
 
-.navegacao:focus {
+.navegacao:focus-within {
     box-shadow: 2px 2px 0px;
     transform: translate(-1px, -1px) ;
 }
